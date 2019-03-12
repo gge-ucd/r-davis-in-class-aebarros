@@ -17,7 +17,10 @@ library(htmlTable)
 My research project aims to determine feeding habits of Juvenile Longfin Smelt (*Spirinchus thaleichthys*) in the San Francisco Estuary (SFE). The SFE population of Longfin (the southernmost part of the species range) is threatened, and thus listed under the California Endangered Species Act. My project aims to answer the following questions: **Do juvenille Longfin Smelt selectively feed on prey? Does juvenille Longfin feeding success vary across habitat types? Does prey density vary across habitat types?**
 With answers to these questions, we can compare potential Longfin rearing habitats across the SFE to better target protection/restoration efforts.
 
-![alt text](C:\Users\arthu\Desktop\School\R-DAVIS\r-davis-in-class-aebarros\images\boat_drone.jpg)
+
+
+####Collecting juvenile fish in the Napa Marsh####
+![](https://i2.wp.com/hobbslab.com/wp-content/uploads/2016/10/IMG_7460-e1477342620233.jpg?zoom=2&w=668&h=891)
 
 
 ## Storms Plots
