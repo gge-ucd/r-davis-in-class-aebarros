@@ -37,12 +37,12 @@ mloa_2001$datetime<-paste0(mloa_2001$year,"-",mloa_2001$month,"-",mloa_2001$day,
 mloa_2001$datetime<-ymd_hm(mloa_2001$datetime)
 
 mloa_2001<-mloa_2001%>%
-  filter(rel_humid!=-99.9)%>%
-  filter(temp_C_2m!=-99.9)%>%
-  filter(windSpeed_m_s!=-99.9)%>%
-  filter(rel_humid!=-999.9)%>%
-  filter(temp_C_2m!=-999.9)%>%
-  filter(windSpeed_m_s!=-999.9)
+  filter(rel_humid!=-99)%>%
+  filter(temp_C_2m!=-99)%>%
+  filter(windSpeed_m_s!=-99)%>%
+  filter(rel_humid!=-999)%>%
+  filter(temp_C_2m!=-999)%>%
+  filter(windSpeed_m_s!=-999)
 
 plot_temp<-function(m=0){
   mloa_2001_month<-mloa_2001%>%

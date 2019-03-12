@@ -1,0 +1,59 @@
+---
+title: "week9_assignment_AB"
+author: "Arthur Barros"
+date: "March 12, 2019"
+html_document: default
+pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(dplyr)
+library(viridis)
+library(htmlTable)
+```
+
+## Masters Project for Arthur Barros
+My research project aims to determine feeding habits of Juvenile Longfin Smelt (*Spirinchus thaleichthys*) in the San Francisco Estuary (SFE). The SFE population of Longfin (the southernmost part of the species range) is threatened, and thus listed under the California Endangered Species Act. My project aims to answer the following questions: **Do juvenille Longfin Smelt selectively feed on prey? Does juvenille Longfin feeding success vary across habitat types? Does prey density vary across habitat types?**
+With answers to these questions, we can compare potential Longfin rearing habitats across the SFE to better target protection/restoration efforts.
+
+![alt text](C:\Users\arthu\Desktop\School\R-DAVIS\r-davis-in-class-aebarros\images\boat_drone.jpg)
+
+
+## Storms Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+ggplot(data=storms)+
+  geom_point(aes(x=pressure, y = wind, color=status), alpha= .05)+
+  scale_fill_viridis_c()+
+  theme_bw()+
+  labs(title= "Hurricane Wind Speed v Pressure", x = "Pressure",y="Windspeed")
+```
+
+Table
+
+```{r, echo=FALSE}
+storms_means<-storms%>%
+  filter(!is.na(wind),!is.na(pressure),!is.na(ts_diameter),!is.na(hu_diameter))%>%
+  group_by(name)%>%
+  summarise(mean_wind=mean(wind),mean_pressure=mean(pressure),mean_ts_diameter=mean(ts_diameter),mean_hu_diameter=mean(hu_diameter))%>%
+   mutate_if(is.numeric, ~round(., 2))
+htmlTable::htmlTable(storms_means)
+```
+
+**CHALLENGE!!!**
+
+```{r,echo=FALSE}
+storms_days<-storms%>%
+  filter(status=="hurricane",year>=2010)%>%
+  group_by(name)%>%
+  summarise(days=length(unique(day)))
+library(purrr)
+map2_chr(.x = storms_days$name, .y = storms_days$days, function(x,y) paste("Hurricane", x, "lasted", y, "days"))
+
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
